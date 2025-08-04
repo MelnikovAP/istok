@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}ISTOK{% endblock %}</title>
+  <!-- Tailwind из CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <div class="flex flex-1">
+    <!-- Основной контент -->
+    <main class="flex-1 p-6 bg-white">
+      {% block content %}{% endblock %}
+    </main>
+
+    <!-- Боковая панель справа -->
+    <aside class="w-64 bg-gray-50 border-l shadow-lg">
+      <!-- Логотип / название -->
+      <div class="p-4 text-2xl font-bold text-gray-800 hover:text-gray-900">
+        ISTOK
+      </div>
+
+      <!-- Навигация -->
+      <nav class="mt-6">
+        <ul>
+          {% for item in menu_items %}
+            <li>
+              <a href="{{ item.url }}"
+                 class="block px-4 py-2 text-gray-700 hover:bg-gray-200 {% if request.path == item.url %}bg-gray-200{% endif %}">
+                {{ item.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+
+      <!-- (опционально) подвал боковой панели -->
+      <div class="mt-auto p-4 text-sm text-gray-500">
+        &copy; {{ now.year }} ISTOK
+      </div>
+    </aside>
+  </div>
+
+</body>
+</html>
