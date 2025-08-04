@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+*.DS_Store
+
+# Virtual environment
+.env/
+venv/
+ENV/
+env.bak/
+*.sqlite3
+
+# Django
+*.log
+staticfiles/
+static/
+media/
+local_settings.py
+db.sqlite3
+
+# VS Code / PyCharm
+.vscode/
+.idea/
+
+# Migrations (по желанию)
+**/migrations/
+!**/migrations/__init__.py
+
+# OS junk
+Thumbs.db
+.DS_Store
+
+# Nginx / Gunicorn / Supervisor (если создаёшь рядом)
+*.sock
+*.pid
+*.log
