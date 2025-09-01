@@ -85,6 +85,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# TODO: hide credentials
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -149,6 +150,7 @@ SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/'
 ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
+# ACCOUNT_LOGOUT_ON_GET = True
 
 ACCOUNT_LOGIN_METHODS       = {'username', 'email'} 
 ACCOUNT_SIGNUP_FIELDS       = ['email*', 'username*', 'password1*', 'password2*']

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}{{ stand.title }} — ISTOK{% endblock %}
+{% block content %}
+  <h1 class="mb-3">{{ stand.title }}</h1>
+  
+  {% if has_access %}
+    <p class="mb-4">{{ stand.description }}</p>
+    <div class="card p-3">Контент стенда…</div>
+  {% else %}
+    <div class="alert alert-warning">
+      🔒 У вас нет доступа.
+      <a href="/billing/upgrade/?next={{ request.path }}">Оформить подписку</a>
+    </div>
+  {% endif %}
+
+{% endblock %}
