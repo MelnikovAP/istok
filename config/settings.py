@@ -32,14 +32,15 @@ ALLOWED_HOSTS = ['45.132.17.12', 'localhost', '127.0.0.1', '0.0.0.0']
 
 INSTALLED_APPS = [
     'django.contrib.sites',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
 
     'core',
     'accounts',
     'dashboard',
     'projects',
+    
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 
     'django.contrib.admin',
     'django.contrib.auth',

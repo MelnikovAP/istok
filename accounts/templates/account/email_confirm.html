@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load form_tags %}
+
+{% block title %}Email confirmation — ISTOK{% endblock %}
+{% block content %}
+<div class="container d-flex justify-content-center">
+  <div class="card p-4" style="max-width:520px; width:100%;">
+    <h1 class="h5 mb-3 text-center">Confirm your email</h1>
+    {% if confirmation %}
+      <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
+        {% csrf_token %}
+        <p class="text-center">Click to confirm your email.</p>
+        <button class="btn btn-primary w-100" type="submit">Confirm</button>
+      </form>
+    {% else %}
+      <div class="alert alert-warning">Invalid or expired confirmation link.</div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

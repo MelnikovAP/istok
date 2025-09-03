@@ -56,18 +56,31 @@
           {% endif %}
         </div>
         <!-- Main Navigation -->
-        <nav class="nav flex-column flex-grow-1">
+        <div class="list-group mb-4">
+          <a href="/" class="list-group-item list-group-item-action d-flex align-items-center">
+            <span class="flex-grow-1">Main</span>
+          </a>
+        </div>
+
+        <!-- Stands -->
+        <div class="list-group flex-grow-1 mb-3">
           {% for item in menu_items %}
             {% if item.locked %}
-              <span class="nav-link disabled text-muted" style="pointer-events:none;opacity:.6;">
-                {{ item.title }} 🔒
-              </span>
-              <a class="nav-link" href="/billing/upgrade/?next={{ item.url }}">Оформить доступ →</a>
+              <div class="list-group-item d-flex align-items-center text-muted" aria-disabled="true">
+                <span class="flex-grow-1">{{ item.title }}</span>
+                <a href="/dashboard/" class="ms-auto text-decoration-none" title="Купить доступ" aria-label="Купить доступ">
+                  🛒
+                </a>
+              </div>
             {% else %}
-              <a class="nav-link" href="{{ item.url }}">{{ item.title }}</a>
+              <a href="{{ item.url }}" class="list-group-item list-group-item-action d-flex align-items-center">
+                <span class="flex-grow-1">{{ item.title }}</span>
+              </a>
             {% endif %}
           {% endfor %}
-        </nav>
+        </div>
+
+
         <!-- Footer Links -->
         <div class="mt-auto">
           <div class="list-group mb-3">

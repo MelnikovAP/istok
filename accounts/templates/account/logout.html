@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load form_tags %}
+
+{% block title %}Sign out — ISTOK{% endblock %}
+
+{% block content %}
+<div class="container d-flex justify-content-center">
+  <div class="card p-4" style="max-width:480px; width:100%;">
+    <h1 class="h5 mb-3 text-center">Sign out</h1>
+
+    {% if ACCOUNT_LOGOUT_ON_GET %}
+      <div class="alert alert-info text-center">
+        You have been signed out.
+      </div>
+      <p class="text-center mb-0"><a href="/">Go to home page</a></p>
+    {% else %}
+      <p class="text-center">Are you sure you want to sign out?</p>
+      <form method="post" action="{% url 'account_logout' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary w-100">Yes, sign out</button>
+      </form>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

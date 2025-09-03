@@ -1,7 +1,7 @@
 from projects.models import Stand
 
 def menu_items(request):
-    items = [{"title": "Главная", "url": "/", "locked": False}]
+    items = []
     u = request.user
     for stand in Stand.objects.filter(is_active=True).order_by("title"):
         url = f"/projects/{stand.slug}/"
